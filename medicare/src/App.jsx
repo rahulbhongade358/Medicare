@@ -8,7 +8,7 @@ import Login from "./Pages/Public/Login";
 import SignUp from "./Pages/Public/SignUp";
 const App = () => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
