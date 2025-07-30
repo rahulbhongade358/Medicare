@@ -5,6 +5,7 @@ import Home from "./Pages/Public/Home";
 import Contact from "./Pages/Public/Contact";
 import Explore from "./Pages/Public/Explore";
 import Login from "./Pages/Public/Login";
+import About from "./Pages/Public/About";
 import SignUp from "./Pages/Public/SignUp";
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />

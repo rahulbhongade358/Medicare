@@ -117,22 +117,22 @@ const Footer = () => {
           </p>
           <div className=" text-[13px] font-serif flex flex-col items-center gap-2 text-center">
             <p className="text-sm font-serif max-w-4xl leading-relaxed text-justify pl-1">
-              <p>
+              <span>
                 <span className="font-bold">📍 Address:</span> MediCare+ Health
                 Pvt. Ltd., 3rd Floor, HealthTech Building, Pune, Maharashtra,
                 India - 411001
-              </p>
-              <p>
+              </span>
+              <span>
                 <span className="font-bold">📞 Phone:</span> +91 9876543210
-              </p>
-              <p>
+              </span>
+              <span>
                 <span className="font-bold">📧 Email:</span>
                 support@medicareplus.in
-              </p>
-              <p>
+              </span>
+              <span>
                 <span className="font-bold">🕒Working Hours:</span> Monday to
                 Saturday - 9:00 AM to 6:00 PM
-              </p>
+              </span>
             </p>
           </div>
         </div>
