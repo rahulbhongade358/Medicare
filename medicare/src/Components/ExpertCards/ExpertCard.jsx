@@ -2,15 +2,16 @@ import React from "react";
 import Button from "../Button";
 
 const ExpertCard = ({ Name, Specialization, Experience, Profile, Img }) => {
+  const Bio = Profile;
   return (
-    <div className="flex flex-col h-full ">
+    <div className="flex flex-col h-full  ">
       <div className="space-y-2">
         <div className="flex justify-center items-center mt-3">
           <img
             src={Img}
             alt=""
             className=" 
-           h-[200px] w-[200px] rounded-[50%] shadow-cyan-200 shadow-lg"
+           h-[150px] w-[150px] rounded-[50%] shadow-cyan-200 shadow-lg"
           />
         </div>
 
@@ -31,10 +32,12 @@ const ExpertCard = ({ Name, Specialization, Experience, Profile, Img }) => {
           </span>
         </p>
         <p>
-          <span className=" text-[#0288D1] font-extrabold font-serif">
-            Bio:
-            <span className="text-gray-700">{Profile}</span>
-          </span>
+          {Bio ? (
+            <span className=" text-[#0288D1] font-extrabold font-serif">
+              Bio:
+              <span className="text-gray-700">{Profile}</span>
+            </span>
+          ) : null}
         </p>
         <div className="mt-auto mb-0 pt-4 flex justify-center items-center">
           <Button

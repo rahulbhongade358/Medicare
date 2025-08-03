@@ -1,5 +1,5 @@
 import React from "react";
-import { WhyChooseCard } from "../../Components/Cardsmap/Cardmap";
+import { Expertscard, WhyChooseCard } from "../../Components/Cardsmap/Cardmap";
 import Footer from "./../../Components/Footer/Footer";
 import logo2 from "./../../assets/Doctors/logo3.jpeg";
 const About = () => {
@@ -33,51 +33,25 @@ const About = () => {
             />
           </div>
         </section>
-        <section className="bg-gray-50 py-10 text-center">
+        <section className="bg-gray-50  text-center">
           <span className="text-3xl font-bold font-serif text-[#0288D1]">
-            👨‍⚕️ Meet Our Dedicated Team
+            👨‍⚕️ Meet Our Dedicated Team -Doctor's & Nursing Staff
           </span>
-          <div className="text-[18px]   m-5    font-serif">
-            <p>
+          <div className="font-serif">
+            <p className="text-[20px]  m-5  ">
               At MediCare, we celebrate the efforts of real heroes — doctors,
               nurses, and medical staff who work day and night for patient care.
               Our team includes:
             </p>
             <div>
-              <span className="text-2xl mt-6 block  font-bold font-serif text-[#0288D1]">
-                Our Doctor's
-              </span>
               <div>
-                <p className="text-[18px]   m-5    font-serif">
+                <p className="text-[20px]   m-5    font-serif">
                   We showcase profiles of verified and professional doctors from
                   various specializations — cardiologists, neurologists,
                   pediatricians, and general practitioners — each with a proven
                   track record of compassionate care.
                 </p>
               </div>
-              <div className="flex justify-between">
-                <div className="bg-gray-300 h-40 w-60">
-                  <p> Dr. Sameer Kulkarni</p>
-                  <span>15+ years of experience</span>
-                  <span> Cardiologist</span>
-                </div>
-                <div className="bg-gray-300 h-40 w-60">
-                  <p> Dr. Anjali Mehta</p>
-                  <span>AIIMS-trained</span>
-                  <span> Neurologist</span>
-                </div>
-                <div className="bg-gray-300 h-40 w-60">
-                  <p>Dr. Vikram Shah</p>
-                  <span>General Physician and Clinic Advisor</span>
-                </div>
-                <div className="bg-gray-300 h-40 w-60">
-                  <p> Dr. Rakesh Patel</p>
-                  <span>MBBS, MD</span>
-                </div>
-              </div>
-              <span className="text-2xl mt-6 block  font-bold font-serif text-[#0288D1]">
-                💉 Nursing Staff
-              </span>
               <div>
                 <p className="text-[18px]   m-5    font-serif">
                   Our platform also highlights the unsung heroes — the nursing
@@ -86,26 +60,11 @@ const About = () => {
                   operations and compassionate bedside care.
                 </p>
               </div>
-              <div className="flex justify-between">
-                <div className="bg-gray-300 h-40 w-60">
-                  <p> Dr. Sameer Kulkarni</p>
-                  <span>15+ years of experience</span>
-                  <span> Cardiologist</span>
+              <section className="bg-gray-50 py-10 text-center ">
+                <div className="flex justify-center items-center gap-6 mb-6">
+                  <Expertscard />
                 </div>
-                <div className="bg-gray-300 h-40 w-60">
-                  <p> Dr. Anjali Mehta</p>
-                  <span>AIIMS-trained</span>
-                  <span> Neurologist</span>
-                </div>
-                <div className="bg-gray-300 h-40 w-60">
-                  <p>Dr. Vikram Shah</p>
-                  <span>General Physician and Clinic Advisor</span>
-                </div>
-                <div className="bg-gray-300 h-40 w-60">
-                  <p> Dr. Rakesh Patel</p>
-                  <span>MBBS, MD</span>
-                </div>
-              </div>
+              </section>
             </div>
           </div>
         </section>
@@ -209,11 +168,11 @@ const About = () => {
             </p>
           </div>
         </section>
-        <section className="bg-[#fff3cd] py-10 px-4 font-serif">
+        <section className="bg-[#fff3cd] py-10 px-4 font-serif m-5 border-2 rounded-4xl">
           <div className="  text-center"></div>
           <h2
             className="text-center text-[#856404] font-serif text-3xl font-bold
-           border-l-4 border-t-4 border-[#ffc107] px-4 py-2 bg-[#fff3cd] shadow-md"
+           border-l-4 border-t-4 border-[#ffc107]  px-4 py-2 bg-[#fff3cd] shadow-md"
           >
             ⚠️ Disclaimer – Please Read Carefully
           </h2>
@@ -275,7 +234,6 @@ const About = () => {
           <WhyChooseCard />
         </section>
       </div>
-      <Footer />
     </div>
   );
 };

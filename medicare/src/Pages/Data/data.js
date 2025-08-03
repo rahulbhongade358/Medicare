@@ -451,7 +451,7 @@ const Expert=[
         Experience:`15 years of experience`,
         Profile:`Dr. Sharma is a leading expert in heart care with over a decade of hands-on experience.
 He has successfully treated thousands of patients with complex cardiac issues.
-Patients value his sharp diagnosis, modern treatment, and compassionate approach.`,
+Patients value his sharp diagnosis, modern treatmentand compassionate approach.`,
         Img:Rajesh
     },
     {

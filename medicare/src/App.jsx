@@ -7,6 +7,7 @@ import Explore from "./Pages/Public/Explore";
 import Login from "./Pages/Public/Login";
 import About from "./Pages/Public/About";
 import SignUp from "./Pages/Public/SignUp";
+import Footer from "./Components/Footer/Footer";
 const App = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
+      <Footer/>
     </div>
   );
 };

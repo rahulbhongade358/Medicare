@@ -15,7 +15,6 @@ import {
   Testimonialcard,
 } from "../../Components/Cardsmap/Cardmap";
 import Service from "../OurServices/Service";
-import Footer from "./../../Components/Footer/Footer";
 const Home = () => {
   return (
     <div>
@@ -333,9 +332,6 @@ const Home = () => {
       </section>
       <div>
         <Service />
-      </div>
-      <div>
-        <Footer />
       </div>
     </div>
   );
