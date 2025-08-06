@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Login1 from "./../../assets/Doctors/login/Login1.png";
+import username from "./../../assets/Doctors/username.png";
+import password from "./../../assets/Doctors/password.png";
+import role from "./../../assets/Doctors/role.png";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [showpassword, setshowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -27,33 +32,92 @@ const Login = () => {
             className="flex flex-col items-center gap-6"
           >
             <div className="w-full max-w-md">
-              <input
-                type="text"
-                placeholder="Username"
-                {...register("username", { required: true })}
-                className="w-full text-center text-xl bg-transparent border-b border-gray-500 focus:outline-none focus:border-indigo-400 py-3 placeholder-gray-500"
-              />
-              {errors.username && (
-                <p className="text-red-600 text-sm mt-1 text-center">
-                  *This field is required*
-                </p>
-              )}
+              <div className="flex items-center border-b border-gray-500 focus-within:border-indigo-400">
+                <img src={username} alt="user icon" className="h-6 w-6 " />
+                <input
+                  type="text"
+                  placeholder="Username"
+                  autoComplete="off"
+                  {...register("username", { required: true })}
+                  className="w-full text-center text-xl bg-transparent  focus:outline-none focus:border-indigo-400 py-3 placeholder-gray-500"
+                />
+                {errors.username && (
+                  <p className="text-red-600 text-sm mt-1 text-center">
+                    *This field is required*
+                  </p>
+                )}
+              </div>
             </div>
-
             <div className="w-full max-w-md">
-              <input
-                type="password"
-                placeholder="Password"
-                {...register("password", { required: true })}
-                className="w-full text-center text-xl bg-transparent border-b border-gray-500 focus:outline-none focus:border-indigo-400 py-3 placeholder-gray-500"
-              />
-              {errors.password && (
-                <p className="text-red-600 text-sm mt-1 text-center">
-                  *This field is required*
-                </p>
-              )}
-            </div>
+              <div className="flex items-center border-b border-gray-500 focus-within:border-indigo-400">
+                <img
+                  src={password}
+                  alt="pass icon"
+                  className="h-6 w-6 items-center  "
+                />
 
+                <input
+                  type={showpassword ? "text" : "password"}
+                  placeholder="Password"
+                  {...register("password", { required: true })}
+                  className="w-full text-center text-xl bg-transparent  focus:outline-none focus:border-indigo-400 py-3 placeholder-gray-500"
+                />
+                <input
+                  type="checkbox"
+                  name=""
+                  id="showpassword"
+                  checked={showpassword}
+                  onChange={() => setshowPassword((prev) => !prev)}
+                />
+
+                {errors.password && (
+                  <p className="text-red-600 text-sm mt-1 text-center">
+                    *This field is required*
+                  </p>
+                )}
+              </div>
+            </div>
+            <div className="w-full max-w-md">
+              <div className="flex flex-col gap-3 border-b border-gray-500 pb-4 focus-within:border-indigo-400">
+                <div className="flex items-center gap-2">
+                  <img src={role} alt="role icon" className="h-6 w-6" />
+                  <label className="text-gray-600 text-xl">Login as...</label>
+                </div>
+
+                <div className="flex justify-between px-4">
+                  <label className="flex items-center gap-2 text-lg">
+                    <input
+                      type="radio"
+                      value="doctor"
+                      {...register("role", { required: true })}
+                    />
+                    Doctor
+                  </label>
+                  <label className="flex items-center gap-2 text-lg">
+                    <input
+                      type="radio"
+                      value="nurse"
+                      {...register("role", { required: true })}
+                    />
+                    Nurse
+                  </label>
+                  <label className="flex items-center gap-2 text-lg">
+                    <input
+                      type="radio"
+                      value="patient"
+                      {...register("role", { required: true })}
+                    />
+                    Patient
+                  </label>
+                </div>
+
+                {errors.role && (
+                  <p className="text-red-600 text-sm mt-1 text-center">
+                    *This field is required*
+                  </p>
+                )}
+              </div>
+            </div>
             <div>
               <input
                 type="submit"
@@ -61,6 +125,15 @@ const Login = () => {
                 className="bg-blue-500 text-2xl hover:bg-blue-600 transition-colors duration-200 text-white font-semibold rounded-2xl px-6 py-3 cursor-pointer shadow-md"
               />
             </div>
+            <p className="text-[15px]">
+              Don't have an account?
+              <Link
+                to="/signup"
+                className="cursor-pointer text-blue-600 font-bold  hover:text-blue-700 hover:underline "
+              >
+                Singup
+              </Link>
+            </p>
           </form>
         </div>
       </div>
