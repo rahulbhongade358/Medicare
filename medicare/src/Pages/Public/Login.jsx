@@ -1,20 +1,37 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import Login1 from "./../../assets/Doctors/login/Login1.png";
-import username from "./../../assets/Doctors/username.png";
-import password from "./../../assets/Doctors/password.png";
+import userimg from "./../../assets/Doctors/username.png";
+import passimg from "./../../assets/Doctors/password.png";
 import role from "./../../assets/Doctors/role.png";
 import { Link } from "react-router-dom";
+import { Authcontext } from "../../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [showpassword, setshowPassword] = useState(false);
+  const { Login, user } = useContext(Authcontext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const Submit = (Data) => console.log(Data);
+  const Submit = (data) => {
+    Login({
+      username: data.username,
+      password: data.password,
+      role: data.role,
+    });
+    if (data.role === "Doctor") {
+      navigate("/doctordashboard");
+    } else if (data.role === "Nurse") {
+      navigate("/nursedashboard");
+    } else {
+      navigate("/patientdashboard");
+    }
+  };
   return (
     <>
       <div className="font-serif bg-[#B3E5FC] text-gray-600 flex flex-col lg:flex-row justify-around items-center px-10 py-6">
@@ -33,7 +50,7 @@ const Login = () => {
           >
             <div className="w-full max-w-md">
               <div className="flex items-center border-b border-gray-500 focus-within:border-indigo-400">
-                <img src={username} alt="user icon" className="h-6 w-6 " />
+                <img src={userimg} alt="user icon" className="h-6 w-6 " />
                 <input
                   type="text"
                   placeholder="Username"
@@ -51,7 +68,7 @@ const Login = () => {
             <div className="w-full max-w-md">
               <div className="flex items-center border-b border-gray-500 focus-within:border-indigo-400">
                 <img
-                  src={password}
+                  src={passimg}
                   alt="pass icon"
                   className="h-6 w-6 items-center  "
                 />
@@ -84,31 +101,17 @@ const Login = () => {
                   <label className="text-gray-600 text-xl">Login as...</label>
                 </div>
 
-                <div className="flex justify-between px-4">
-                  <label className="flex items-center gap-2 text-lg">
-                    <input
-                      type="radio"
-                      value="doctor"
-                      {...register("role", { required: true })}
-                    />
-                    Doctor
-                  </label>
-                  <label className="flex items-center gap-2 text-lg">
-                    <input
-                      type="radio"
-                      value="nurse"
-                      {...register("role", { required: true })}
-                    />
-                    Nurse
-                  </label>
-                  <label className="flex items-center gap-2 text-lg">
-                    <input
-                      type="radio"
-                      value="patient"
-                      {...register("role", { required: true })}
-                    />
-                    Patient
-                  </label>
+                <div className="flex justify-between px-3">
+                  {["Doctor", "Nurse", "Patient"].map((r) => (
+                    <label key={r} className="flex items-center gap-2 text-lg">
+                      <input
+                        type="radio"
+                        value={r}
+                        {...register("role", { required: true })}
+                      />
+                      {r}
+                    </label>
+                  ))}
                 </div>
 
                 {errors.role && (
@@ -135,6 +138,16 @@ const Login = () => {
               </Link>
             </p>
           </form>
+        </div>
+        <div>
+          <h1>Current User</h1>
+          {user.username ? (
+            <p>
+              {user.username} ({user.role})
+            </p>
+          ) : (
+            <p>No user logged in</p>
+          )}
         </div>
       </div>
     </>
